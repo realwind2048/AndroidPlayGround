@@ -1,6 +1,7 @@
-package com.peterkim.androidplayground.service;
+package com.peterkim.androidplayground.networking;
 
 import com.google.gson.JsonObject;
+import com.peterkim.androidplayground.entity.SearchImage;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,5 +12,5 @@ public interface KakaoService {
     Call<JsonObject> searchVideo(@Query("query") String query, @Query("page") int page);
 
     @GET("v2/search/image")
-    Call<JsonObject> searchImage(@Query("query") String query, @Query("page") int page);
+    Call<SearchImage> searchImage(@Query("query") String query, @Query("page") int page);
 }
