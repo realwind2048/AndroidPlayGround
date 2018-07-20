@@ -14,6 +14,9 @@ import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list_item_main.view.*
 
+/**
+ * Show a list of all activities(samples)
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +24,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val data: ArrayList<ButtonData> = ArrayList()
-        data.add(ButtonData("1", MainActivity::class.java))
+        data.add(ButtonData("1", KakaoActivity::class.java))
         data.add(ButtonData("2", MainActivity::class.java))
+
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ListAdapter(this, data)
@@ -37,9 +41,10 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount() =  data.size
 
         override fun onBindViewHolder(holder: VH, position: Int) {
-            holder.btnActivity.text = data[position].name
+            val item = data[position]
+            holder.btnActivity.text = item.name
             holder.btnActivity.setOnClickListener {
-                val intent = Intent(context, data[position].dest)
+                val intent = Intent(context, item.dest)
                 context.startActivity(intent)
             }
         }
