@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.peterkim.androidplayground.R.id.recyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list_item_main.view.*
 
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val data: ArrayList<ButtonData> = ArrayList()
-        data.add(ButtonData("1", KakaoActivity::class.java))
+        data.add(ButtonData("Kakao API", KakaoActivity::class.java))
         data.add(ButtonData("2", MainActivity::class.java))
 
         recyclerView.setHasFixedSize(true)
